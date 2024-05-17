@@ -1,5 +1,9 @@
+<!-- Start Header/Navigation Users -->
+<app-nav-usuario *ngIf="showNavUsers"></app-nav-usuario>
+<!-- End Header/Navigation Users -->
+
 <!-- Start Header/Navigation -->
-<app-navbar></app-navbar>
+<app-navbar *ngIf="showNavNotUsers"></app-navbar>
 <!-- End Header/Navigation -->
 
 <router-outlet></router-outlet>
