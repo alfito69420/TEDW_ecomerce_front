@@ -21,6 +21,13 @@ import { ShopUserComponent } from './components/usuario/shop-user/shop-user.comp
 import { ServicesUserComponent } from './components/usuario/services-user/services-user.component';
 import { ContactUserComponent } from './components/usuario/contact-user/contact-user.component';
 import { AboutUserComponent } from './components/usuario/about-user/about-user.component';
+import { IndexComponent } from './components/usuario/index/index.component';
+import { NavUsuarioComponent } from './components/usuario/nav-usuario/nav-usuario.component';
+import { CartComponent } from './components/usuario/cart/cart.component';
+import { ShopUserComponent } from './components/usuario/shop-user/shop-user.component';
+import { ServicesUserComponent } from './components/usuario/services-user/services-user.component';
+import { ContactUserComponent } from './components/usuario/contact-user/contact-user.component';
+import { AboutUserComponent } from './components/usuario/about-user/about-user.component';
 >>>>>>> Stashed changes
 
 @NgModule({
@@ -55,17 +62,47 @@ import { AboutUserComponent } from './components/usuario/about-user/about-user.c
     ServicesUserComponent,
     ContactUserComponent,
     AboutUserComponent,
+    IndexComponent,
+    NavUsuarioComponent,
+    CartComponent,
+    ShopUserComponent,
+    ServicesUserComponent,
+    ContactUserComponent,
+    AboutUserComponent,
+    IndexComponent,
+    NavUsuarioComponent,
+    CartComponent,
+    ShopUserComponent,
+    ServicesUserComponent,
+    ContactUserComponent,
+    AboutUserComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       //Aquí definimos las rutas con base a los componentes que se vayan creando
       { path: 'home', component: HomeComponent },
+      { path: 'home', component: HomeComponent },
+      { path: 'home', component: HomeComponent },
       { path: 'shop', component: ShopComponent },
       { path: 'services', component: ServicesComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'about', component: AboutComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'user/home', component: IndexComponent },
+      { path: 'user/cart', component: CartComponent },
+      { path: 'user/shop', component: ShopUserComponent },
+      { path: 'user/services', component: ServicesUserComponent },
+      { path: 'user/contact', component: ContactUserComponent },
+      { path: 'user/about', component: AboutUserComponent },
+      { path: '**', redirectTo: '/home', pathMatch: 'full' },
+      { path: 'user/home', component: IndexComponent },
+      { path: 'user/cart', component: CartComponent },
+      { path: 'user/shop', component: ShopUserComponent },
+      { path: 'user/services', component: ServicesUserComponent },
+      { path: 'user/contact', component: ContactUserComponent },
+      { path: 'user/about', component: AboutUserComponent },
+      { path: '**', redirectTo: '/home', pathMatch: 'full' },
       { path: 'user/home', component: IndexComponent },
       { path: 'user/cart', component: CartComponent },
       { path: 'user/shop', component: ShopUserComponent },
