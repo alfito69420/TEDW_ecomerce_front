@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'TEDW_ecomerce_front';
-<<<<<<< Updated upstream
-=======
+
   showFooter = true;
   showNavUsers = true;
   showNavNotUsers = true;
@@ -39,5 +38,4 @@ export class AppComponent {
         this.showNavNotUsers = !this.showNavUsers;
       });
   }
->>>>>>> Stashed changes
 }

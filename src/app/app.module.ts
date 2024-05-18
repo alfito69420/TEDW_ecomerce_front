@@ -51,7 +51,7 @@ import { AboutUserComponent } from './components/usuario/about-user/about-user.c
       { path: 'contact', component: ContactComponent },
       { path: 'about', component: AboutComponent },
       { path: '**', redirectTo: '/', pathMatch: 'full' },
-      { path: 'login', component: LoginComponent },
+      // { path: 'login', component: LoginComponent },
       { path: 'user/home', component: IndexComponent },
       { path: 'user/cart', component: CartComponent },
       { path: 'user/shop', component: ShopUserComponent },
