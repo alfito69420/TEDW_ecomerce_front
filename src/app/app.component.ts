@@ -9,7 +9,11 @@ import { filter } from 'rxjs/operators';
 })
 export class AppComponent {
   title = 'TEDW_ecomerce_front';
+
   showFooter = true;
+  showNavUsers = true;
+  showNavNotUsers = true;
+
 
   constructor(private router: Router) {}
 
@@ -22,7 +26,21 @@ export class AppComponent {
         )
       )
       .subscribe((event: NavigationEnd) => {
+
+        // Lógica para showFooter
         this.showFooter = !event.url.includes('/login');
+
+        // Lógica para showNavUsers
+        this.showNavUsers =
+          event.url.includes('/user/home') ||
+          event.url.includes('/user/shop') ||
+          event.url.includes('/user/services') ||
+          event.url.includes('/user/about') ||
+          event.url.includes('/user/contact') ||
+          event.url.includes('/user/cart');
+
+        this.showNavNotUsers = !this.showNavUsers;
+
       });
   }
 }
