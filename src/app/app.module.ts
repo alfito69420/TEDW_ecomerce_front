@@ -14,7 +14,6 @@ import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
 import { FooterComponent } from './components/footer/footer.component';
-// import { LoginComponent } from './components/login/login.component';
 import { IndexComponent } from './components/usuario/index/index.component';
 import { NavUsuarioComponent } from './components/usuario/nav-usuario/nav-usuario.component';
 import { CartComponent } from './components/usuario/cart/cart.component';
@@ -22,6 +21,8 @@ import { ShopUserComponent } from './components/usuario/shop-user/shop-user.comp
 import { ServicesUserComponent } from './components/usuario/services-user/services-user.component';
 import { ContactUserComponent } from './components/usuario/contact-user/contact-user.component';
 import { AboutUserComponent } from './components/usuario/about-user/about-user.component';
+import { LoginComponent } from './components/login/login.component';
+
 
 @NgModule({
   declarations: [
@@ -40,6 +41,8 @@ import { AboutUserComponent } from './components/usuario/about-user/about-user.c
     ServicesUserComponent,
     ContactUserComponent,
     AboutUserComponent,
+    LoginComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,7 @@ import { AboutUserComponent } from './components/usuario/about-user/about-user.c
       { path: 'contact', component: ContactComponent },
       { path: 'about', component: AboutComponent },
       { path: '**', redirectTo: '/', pathMatch: 'full' },
-      // { path: 'login', component: LoginComponent },
+      { path: 'login', component: LoginComponent },
       { path: 'user/home', component: IndexComponent },
       { path: 'user/cart', component: CartComponent },
       { path: 'user/shop', component: ShopUserComponent },

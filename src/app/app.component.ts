@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, Event, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'TEDW_ecomerce_front';
@@ -11,6 +13,7 @@ export class AppComponent {
   showFooter = true;
   showNavUsers = true;
   showNavNotUsers = true;
+
 
   constructor(private router: Router) {}
 
@@ -23,6 +26,7 @@ export class AppComponent {
         )
       )
       .subscribe((event: NavigationEnd) => {
+
         // Lógica para showFooter
         this.showFooter = !event.url.includes('/login');
 
@@ -36,6 +40,7 @@ export class AppComponent {
           event.url.includes('/user/cart');
 
         this.showNavNotUsers = !this.showNavUsers;
+
       });
   }
 }

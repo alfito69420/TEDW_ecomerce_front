@@ -1,39 +1,74 @@
-<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
-    <div class="container">
-        <a class="navbar-brand" routerLink="">VOGUE VENUE<span>.</span></a>
+<nav
+  class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark"
+  aria-label="Furni navigation bar"
+>
+  <div class="container">
+    <a class="navbar-brand" routerLink="">VOGUE VENUE<span>.</span></a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni"
-            aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarsFurni"
+      aria-controls="navbarsFurni"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="collapse navbar-collapse" id="navbarsFurni">
-            <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-                <li>
-                    <a class="nav-link" routerLink="">Home</a>
-                </li>
-                <li>
-                    <a class="nav-link" routerLink="/shop">Tienda</a>
-                </li>
-                <li>
-                    <a class="nav-link" routerLink="/services">Servicios</a>
-                </li>
-                <li>
-                    <a class="nav-link" routerLink="/about">Sobre nosotros</a>
-                </li>
-                <li>
-                    <a class="nav-link" routerLink="/contact">Contactanos</a>
-                </li>
-            </ul>
+    <div class="collapse navbar-collapse" id="navbarsFurni">
+      <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+        <li
+          class="nav-item"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a class="nav-link" routerLink="">Home</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/shop">Tienda</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/services">Servicios</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/about">Sobre nosotros</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/contact">Contactanos</a>
+        </li>
+      </ul>
 
-            <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-                <li>
-                    <a class="nav-link" routerLink="#"><img src="./../assets/images/user.svg" /></a>
-                </li>
-                <li>
-                    <a class="nav-link" routerLink="/cart"><img src="./../assets/images/cart.svg" /></a>
-                </li>
-            </ul>
-        </div>
+      <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="userDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img src="../../../assets/images/user.svg" alt="User" />
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end drop-login"
+            aria-labelledby="userDropdown"
+          >
+            <li>
+              <a class="dropdown-item drop-item item-login" routerLink="/login">
+                Log in <i class="bx bx-log-in"></i>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="cart.html">
+            <img src="../../../assets/images/cart.svg" alt="Cart" />
+          </a>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
