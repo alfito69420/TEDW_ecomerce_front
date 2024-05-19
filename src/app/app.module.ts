@@ -23,6 +23,7 @@ import { ServicesUserComponent } from './components/usuario/services-user/servic
 import { ContactUserComponent } from './components/usuario/contact-user/contact-user.component';
 import { AboutUserComponent } from './components/usuario/about-user/about-user.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +61,7 @@ import { AboutUserComponent } from './components/usuario/about-user/about-user.c
       { path: 'user/about', component: AboutUserComponent },
       { path: '**', redirectTo: '/', pathMatch: 'full' },
     ]),
+
   ],
   providers: [],
   bootstrap: [AppComponent],
