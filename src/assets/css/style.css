@@ -1295,3 +1295,15 @@ h6 span {
   color: #ff0000;
   /* Ajusta el color según tu esquema de colores */
 }
+
+.contact-form-bg {
+  background-color: #3b5d50; /* Fondo del formulario */
+}
+.btn-primary-hover-outline {
+  background-color: #fdfeff; /* Fondo del botón */
+  border: 1px solid #fdfeff; /* Borde del botón */
+}
+.btn-primary-hover-outline:hover {
+  background-color: #dff66d; /* Fondo del botón al pasar el ratón */
+  border: 1px solid #dff66d; /* Borde del botón al pasar el ratón */
+}
