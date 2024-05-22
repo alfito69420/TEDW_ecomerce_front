@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Importa los estilos de Bootstrap
 
 
 @Component({
