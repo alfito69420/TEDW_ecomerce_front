@@ -14,7 +14,6 @@ export class AppComponent {
   showNavUsers = true;
   showNavNotUsers = true;
 
-
   constructor(private router: Router) {}
 
   ngOnInit() {
@@ -26,7 +25,6 @@ export class AppComponent {
         )
       )
       .subscribe((event: NavigationEnd) => {
-
         // Lógica para showFooter
         this.showFooter = !event.url.includes('/login');
 
@@ -37,10 +35,10 @@ export class AppComponent {
           event.url.includes('/user/services') ||
           event.url.includes('/user/about') ||
           event.url.includes('/user/contact') ||
-          event.url.includes('/user/cart');
+          event.url.includes('/user/cart') ||
+          event.url.includes('/user/opciones');
 
         this.showNavNotUsers = !this.showNavUsers;
-
       });
   }
 }

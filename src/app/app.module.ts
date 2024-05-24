@@ -22,6 +22,9 @@ import { ShopUserComponent } from './components/usuario/shop-user/shop-user.comp
 import { ServicesUserComponent } from './components/usuario/services-user/services-user.component';
 import { ContactUserComponent } from './components/usuario/contact-user/contact-user.component';
 import { AboutUserComponent } from './components/usuario/about-user/about-user.component';
+import { OpcionesComponent } from './components/usuario/opciones/opciones.component';
+import { HistorialOrdenesComponent } from './components/usuario/historial-ordenes/historial-ordenes.component';
+import { GraficasComponent } from './components/usuario/graficas/graficas.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,9 @@ import { AboutUserComponent } from './components/usuario/about-user/about-user.c
     ServicesUserComponent,
     ContactUserComponent,
     AboutUserComponent,
+    OpcionesComponent,
+    HistorialOrdenesComponent,
+    GraficasComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +64,9 @@ import { AboutUserComponent } from './components/usuario/about-user/about-user.c
       { path: 'user/services', component: ServicesUserComponent },
       { path: 'user/contact', component: ContactUserComponent },
       { path: 'user/about', component: AboutUserComponent },
+      { path: 'user/opciones', component: OpcionesComponent },
+      { path: 'user/historial', component: HistorialOrdenesComponent },
+      { path: 'user/graficas', component: GraficasComponent },
       { path: '**', redirectTo: '/', pathMatch: 'full' },
     ]),
   ],
