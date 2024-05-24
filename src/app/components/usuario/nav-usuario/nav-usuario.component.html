@@ -3,7 +3,9 @@
   aria-label="Furni navigation bar"
 >
   <div class="container">
-    <a class="navbar-brand" routerLink="">VOGUE VENUE<span>.</span></a>
+    <a class="navbar-brand" routerLink="/user/home"
+      >VOGUE VENUE<span>.</span></a
+    >
 
     <button
       class="navbar-toggler"
@@ -81,10 +83,9 @@
             <li>
               <button
                 class="dropdown-item drop-item"
-                data-bs-toggle="modal"
-                data-bs-target="#editProfileModal"
+                routerLink="/user/opciones"
               >
-                Editar Información <i class="bx bx-edit"></i>
+                Mi cuenta <i class="bx bx-edit"></i>
               </button>
             </li>
             <!-- Botón para mis pedidos -->

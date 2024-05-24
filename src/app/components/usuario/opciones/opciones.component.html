@@ -1,0 +1,396 @@
+<!-- start Datos del usuario -->
+<div
+  class="container"
+  style="
+    background-color: #e9ecef;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+  "
+>
+  <div
+    class="sidebar"
+    style="width: 30%; padding: 20px; border-right: 1px solid #ccc"
+  >
+    <h3 style="color: #333">Opciones</h3>
+    <ul style="list-style-type: none; padding: 0">
+      <li style="margin-bottom: 10px">
+        <a
+          routerLink="/user/opciones"
+          style="text-decoration: none; color: #007bff; cursor: pointer"
+          >Perfil de usuario</a
+        >
+      </li>
+      <li style="margin-bottom: 10px">
+        <a
+          routerLink="/user/historial"
+          style="text-decoration: none; color: #007bff; cursor: pointer"
+          >Ver historial y detalles de sus pedidos</a
+        >
+      </li>
+      <li style="margin-bottom: 10px">
+        <a
+          routerLink="/user/graficas"
+          style="text-decoration: none; color: #007bff; cursor: pointer"
+          >Generar gráfico de pedidos anuales</a
+        >
+      </li>
+    </ul>
+  </div>
+  <div class="user-info" style="width: 70%; padding: 20px">
+    <h2 style="color: #333; text-align: center">
+      Bienvenido al Perfil del Usuario
+    </h2>
+    <p style="color: #555; text-align: center">
+      Por favor, revisa y actualiza tus datos:
+    </p>
+    <div style="border: 1px solid #ccc; border-radius: 10px; padding: 20px">
+      <div style="margin-bottom: 10px">
+        <label>Nombres:</label>
+        <span>{{ user.firstName }}</span>
+      </div>
+      <div style="margin-bottom: 10px">
+        <label>Apellidos:</label>
+        <span>{{ user.lastName }}</span>
+      </div>
+      <div style="margin-bottom: 10px">
+        <label>Correo Electrónico:</label>
+        <span>{{ user.email }}</span>
+      </div>
+      <div style="margin-bottom: 10px">
+        <label>Compañía:</label>
+        <span>{{ user.company }}</span>
+      </div>
+      <div style="margin-bottom: 10px">
+        <label>Teléfono:</label>
+        <span>{{ user.phone }}</span>
+      </div>
+      <div style="margin-bottom: 10px">
+        <label>País:</label>
+        <span>{{ user.country }}</span>
+      </div>
+      <div style="margin-bottom: 10px">
+        <label>Dirección:</label>
+        <span>{{ user.address }}</span>
+      </div>
+      <div style="margin-bottom: 10px">
+        <label>Ciudad:</label>
+        <span>{{ user.city }}</span>
+      </div>
+      <div style="margin-bottom: 10px">
+        <label>Estado:</label>
+        <span>{{ user.state }}</span>
+      </div>
+      <div style="margin-bottom: 10px">
+        <label>Código Postal:</label>
+        <span>{{ user.postalCode }}</span>
+      </div>
+      <button
+        (click)="openModal()"
+        style="
+          background-color: #007bff;
+          color: #fff;
+          padding: 10px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        "
+      >
+        Actualizar Información
+      </button>
+    </div>
+  </div>
+</div>
+<!-- End datos del usuario -->
+
+<!-- Modal para actualizar información -->
+<div *ngIf="isModalOpen" class="modal">
+  <div class="modal-content">
+    <span (click)="closeModal()" class="close">&times;</span>
+    <h2 style="color: #333">Actualizar Información</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-column">
+          <div style="margin-bottom: 10px">
+            <label for="firstName">Nombres:</label>
+            <input
+              type="text"
+              id="firstName"
+              formControlName="firstName"
+              required
+              style="width: 100%; padding: 5px"
+            />
+          </div>
+          <div style="margin-bottom: 10px">
+            <label for="lastName">Apellidos:</label>
+            <input
+              type="text"
+              id="lastName"
+              formControlName="lastName"
+              required
+              style="width: 100%; padding: 5px"
+            />
+          </div>
+          <div style="margin-bottom: 10px">
+            <label for="email">Correo Electrónico:</label>
+            <input
+              type="email"
+              id="email"
+              formControlName="email"
+              required
+              style="width: 100%; padding: 5px"
+            />
+          </div>
+          <div style="margin-bottom: 10px">
+            <label for="company">Compañía:</label>
+            <input
+              type="text"
+              id="company"
+              formControlName="company"
+              style="width: 100%; padding: 5px"
+            />
+          </div>
+          <div style="margin-bottom: 10px">
+            <label for="phone">Teléfono:</label>
+            <input
+              type="tel"
+              id="phone"
+              formControlName="phone"
+              required
+              style="width: 100%; padding: 5px"
+            />
+          </div>
+        </div>
+        <div class="form-column">
+          <div style="margin-bottom: 10px">
+            <label for="country">País:</label>
+            <input
+              type="text"
+              id="country"
+              formControlName="country"
+              required
+              style="width: 100%; padding: 5px"
+            />
+          </div>
+          <div style="margin-bottom: 10px">
+            <label for="address">Dirección:</label>
+            <input
+              type="text"
+              id="address"
+              formControlName="address"
+              required
+              style="width: 100%; padding: 5px"
+            />
+          </div>
+          <div style="margin-bottom: 10px">
+            <label for="city">Ciudad:</label>
+            <input
+              type="text"
+              id="city"
+              formControlName="city"
+              required
+              style="width: 100%; padding: 5px"
+            />
+          </div>
+          <div style="margin-bottom: 10px">
+            <label for="state">Estado:</label>
+            <input
+              type="text"
+              id="state"
+              formControlName="state"
+              required
+              style="width: 100%; padding: 5px"
+            />
+          </div>
+          <div style="margin-bottom: 10px">
+            <label for="postalCode">Código Postal:</label>
+            <input
+              type="text"
+              id="postalCode"
+              formControlName="postalCode"
+              required
+              style="width: 100%; padding: 5px"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        style="display: flex; justify-content: space-between; margin-top: 20px"
+      >
+        <button
+          type="button"
+          (click)="closeModal()"
+          style="
+            background-color: #6c757d;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+          "
+        >
+          Cancelar
+        </button>
+        <button
+          type="submit"
+          style="
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+          "
+        >
+          Guardar Cambios
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal Ventana emergente  -->
+<div *ngIf="isModalOpen" class="modal">
+  <div class="modal-content">
+    <span (click)="closeModal()" class="close">&times;</span>
+    <h2 style="color: #333">Actualizar Información</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-column">
+          <div style="margin-bottom: 10px">
+            <label for="firstName">Nombres:</label>
+            <input
+              type="text"
+              id="firstName"
+              formControlName="firstName"
+              required
+              style="width: 100%; padding: 5px"
+            />
+          </div>
+          <div style="margin-bottom: 10px">
+            <label for="lastName">Apellidos:</label>
+            <input
+              type="text"
+              id="lastName"
+              formControlName="lastName"
+              required
+              style="width: 100%; padding: 5px"
+            />
+          </div>
+          <div style="margin-bottom: 10px">
+            <label for="email">Correo Electrónico:</label>
+            <input
+              type="email"
+              id="email"
+              formControlName="email"
+              required
+              style="width: 100%; padding: 5px"
+            />
+          </div>
+          <div style="margin-bottom: 10px">
+            <label for="company">Compañía:</label>
+            <input
+              type="text"
+              id="company"
+              formControlName="company"
+              style="width: 100%; padding: 5px"
+            />
+          </div>
+          <div style="margin-bottom: 10px">
+            <label for="phone">Teléfono:</label>
+            <input
+              type="tel"
+              id="phone"
+              formControlName="phone"
+              required
+              style="width: 100%; padding: 5px"
+            />
+          </div>
+        </div>
+        <div class="form-column">
+          <div style="margin-bottom: 10px">
+            <label for="country">País:</label>
+            <input
+              type="text"
+              id="country"
+              formControlName="country"
+              required
+              style="width: 100%; padding: 5px"
+            />
+          </div>
+          <div style="margin-bottom: 10px">
+            <label for="address">Dirección:</label>
+            <input
+              type="text"
+              id="address"
+              formControlName="address"
+              required
+              style="width: 100%; padding: 5px"
+            />
+          </div>
+          <div style="margin-bottom: 10px">
+            <label for="city">Ciudad:</label>
+            <input
+              type="text"
+              id="city"
+              formControlName="city"
+              required
+              style="width: 100%; padding: 5px"
+            />
+          </div>
+          <div style="margin-bottom: 10px">
+            <label for="state">Estado:</label>
+            <input
+              type="text"
+              id="state"
+              formControlName="state"
+              required
+              style="width: 100%; padding: 5px"
+            />
+          </div>
+          <div style="margin-bottom: 10px">
+            <label for="postalCode">Código Postal:</label>
+            <input
+              type="text"
+              id="postalCode"
+              formControlName="postalCode"
+              required
+              style="width: 100%; padding: 5px"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        style="display: flex; justify-content: space-between; margin-top: 20px"
+      >
+        <button
+          type="button"
+          (click)="closeModal()"
+          style="
+            background-color: #6c757d;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+          "
+        >
+          Cancelar
+        </button>
+        <button
+          type="submit"
+          style="
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+          "
+        >
+          Guardar Cambios
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
