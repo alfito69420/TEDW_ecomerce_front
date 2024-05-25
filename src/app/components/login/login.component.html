@@ -9,49 +9,100 @@
             <label for="reg-log"></label>
             <div class="card-3d-wrap mx-auto">
               <div class="card-3d-wrapper">
+                <!-- Log In Form -->
                 <div class="card-front">
                   <div class="center-wrap">
                     <div class="section text-center">
                       <h4 class="mb-4 pb-3">Log In</h4>
-                      <div class="form-group">
-                        <input type="email" class="form-style" placeholder="Correo" />
-                        <i class="input-icon bx bx-at"></i>
-                      </div>
-                      <div class="form-group mt-2">
-                        <input type="password" class="form-style" placeholder="Contraseña" />
-                        <i class="input-icon bx bx-lock"></i>
-                      </div>
-                      <a href="https://www.web-leb.com/code" class="btnLogin mt-4">Login</a>
-                      <p class="mb-0 mt-4 text-center">
-                        <a href="https://www.web-leb.com/code" class="link">¿Olvidaste tu contraseña?</a>
-                      </p>
+
+                      <form action="https://www.web-leb.com/code" method="POST">
+                        <div class="form-group">
+                          <input
+                            type="email"
+                            name="email"
+                            class="form-style"
+                            placeholder="Correo"
+                            required
+                          />
+                          <i class="input-icon bx bx-at"></i>
+                        </div>
+                        <div class="form-group mt-2">
+                          <input
+                            type="password"
+                            name="password"
+                            class="form-style"
+                            placeholder="Contraseña"
+                            required
+                          />
+                          <i class="input-icon bx bx-lock"></i>
+                        </div>
+                        <button type="submit" class="btnLogin mt-4">
+                          Login
+                        </button>
+                        <p class="mb-0 mt-4 text-center">
+                          <a href="https://www.web-leb.com/code" class="link"
+                            >¿Olvidaste tu contraseña?</a
+                          >
+                        </p>
+                      </form>
                     </div>
                   </div>
                 </div>
+                <!-- Sign Up Form -->
                 <div class="card-back">
                   <div class="center-wrap">
                     <div class="section text-center">
                       <h4 class="mb-3 pb-3">Sign Up</h4>
-                      <div class="form-group">
-                        <input type="text" class="form-style" placeholder="Nombre Completo" />
-                        <i class="input-icon bx bx-user"></i>
-                      </div>
-                      <div class="form-group mt-2">
-                        <input type="tel" class="form-style" placeholder="Número de Telefono" />
-                        <i class="input-icon bx bx-phone"></i>
-                      </div>
-                      <div class="form-group mt-2">
-                        <input type="email" class="form-style" placeholder="Correo" />
-                        <i class="input-icon bx bx-at"></i>
-                      </div>
-                      <div class="form-group mt-2">
-                        <input type="password" class="form-style" placeholder="Contraseña" />
-                        <i class="input-icon bx bx-lock"></i>
-                      </div>
-                      <a href="" class="btnLogin mt-4">Register</a>
+
+                      <form action="" method="POST">
+                        <div class="form-group">
+                          <input
+                            type="text"
+                            name="full_name"
+                            class="form-style"
+                            placeholder="Nombre Completo"
+                            required
+                          />
+                          <i class="input-icon bx bx-user"></i>
+                        </div>
+                        <div class="form-group mt-2">
+                          <input
+                            type="tel"
+                            name="phone_number"
+                            class="form-style"
+                            placeholder="Número de Telefono"
+                            required
+                          />
+                          <i class="input-icon bx bx-phone"></i>
+                        </div>
+                        <div class="form-group mt-2">
+                          <input
+                            type="email"
+                            name="email"
+                            class="form-style"
+                            placeholder="Correo"
+                            required
+                          />
+                          <i class="input-icon bx bx-at"></i>
+                        </div>
+                        <div class="form-group mt-2">
+                          <input
+                            type="password"
+                            name="password"
+                            class="form-style"
+                            placeholder="Contraseña"
+                            required
+                          />
+                          <i class="input-icon bx bx-lock"></i>
+                        </div>
+                        <button type="submit" class="btnLogin mt-4">
+                          Register
+                        </button>
+                      </form>
                     </div>
                   </div>
                 </div>
+                <!-- End Sign Up Form -->
               </div>
             </div>
           </div>
