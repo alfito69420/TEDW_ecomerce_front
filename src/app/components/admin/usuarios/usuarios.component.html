@@ -91,7 +91,28 @@
               [(ngModel)]="userToEdit.firstName"
             />
           </div>
-          <!-- Agrega más campos de formulario según sea necesario -->
+          <div class="mb-3">
+            <label for="editApellidoP" class="form-label"
+              >Apellido Paterno</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="editApellidoP"
+              [(ngModel)]="userToEdit.lastName"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="editApellidoM" class="form-label"
+              >Apellido Materno</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="editApellidoM"
+              [(ngModel)]="userToEdit.lastName2"
+            />
+          </div>
         </form>
       </div>
       <div class="modal-footer">

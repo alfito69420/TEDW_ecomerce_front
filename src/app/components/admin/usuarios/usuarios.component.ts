@@ -9,7 +9,7 @@ import { Config } from 'datatables.net';
 export class UsuariosComponent implements OnInit {
   dtOptions: Config = {};
   users: any[] = [];
-  userToEdit: any = {}; // Esta propiedad almacena los datos del usuario que se está editando
+  userToEdit: any = {};
 
   constructor() {}
 
@@ -42,6 +42,8 @@ export class UsuariosComponent implements OnInit {
         password: '********',
       },
     ];
+
+    this.userToEdit = {};
   }
 
   setEditUser(user: any) {
@@ -50,5 +52,7 @@ export class UsuariosComponent implements OnInit {
 
   guardarCambios() {
     console.log('Guardando cambios del usuario:', this.userToEdit);
+
+    this.userToEdit = {};
   }
 }
