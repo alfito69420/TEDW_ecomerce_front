@@ -1,0 +1,228 @@
+<nav
+  class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark"
+  aria-label="Furni navigation bar"
+>
+  <div class="container">
+    <a class="navbar-brand" routerLink="/user/home"
+      >ADMINISTRADOR<span>.</span></a
+    >
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarsFurni"
+      aria-controls="navbarsFurni"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsFurni">
+      <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+        <li
+          class="nav-item"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a class="nav-link" routerLink="/admin/usuarios">Usuarios</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/admin/productos">Productos</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/admin/categorias">Categorias</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/admin/proveedores">Proveedores</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/admin/cupones">Cupones</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/admin/metodos-pago">Metodos pago</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/admin/ordenes-compra"
+            >Ordenes compra</a
+          >
+        </li>
+      </ul>
+
+      <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="userDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img src="../../../assets/images/user.svg" alt="User" />
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end drop-login"
+            aria-labelledby="userDropdown"
+          >
+            <!-- Información del usuario -->
+            <li>
+              <span class="dropdown-item">
+                <strong>Nombre:</strong> Juan Pérez
+              </span>
+            </li>
+            <li>
+              <span class="dropdown-item">
+                <strong>Edad:</strong> 30 años
+              </span>
+            </li>
+            <li>
+              <span class="dropdown-item">
+                <strong>Correo:</strong> juan.perezexample.com
+              </span>
+            </li>
+
+            <!-- Botón para editar información -->
+            <li>
+              <button
+                class="dropdown-item drop-item"
+                routerLink="/user/opciones"
+              >
+                Mi cuenta <i class="bx bx-edit"></i>
+              </button>
+            </li>
+
+            <!-- Opción para cerrar sesión -->
+            <li>
+              <a class="dropdown-item drop-item" routerLink="/logout">
+                Cerrar Sesión <i class="bx bx-log-out"></i>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Modal para editar información -->
+      <div
+        class="modal fade"
+        id="editProfileModal"
+        tabindex="-1"
+        aria-labelledby="editProfileModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editProfileModalLabel">
+                Editar Información
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="editName" class="form-label">Nombre</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="editName"
+                    value="Juan Pérez"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="editAge" class="form-label">Edad</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="editAge"
+                    value="30"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="editEmail" class="form-label">Correo</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="editemail"
+                    value="juan.perez@example.com"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="editAddress" class="form-label">Dirección</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="editAddress"
+                    value="Calle Falsa 123"
+                  />
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cerrar
+              </button>
+              <button type="button" class="btn btn-primary">
+                Guardar cambios
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal para Mis pedidos -->
+      <div
+        class="modal fade"
+        id="myOrdersModal"
+        tabindex="-1"
+        aria-labelledby="myOrdersModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="myOrdersModalLabel">Mis pedidos</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <p>
+                En esta sección podrás ver el historial de tus pedidos,
+                incluyendo detalles como fecha, productos, precio total y estado
+                del pedido.
+              </p>
+              <p>
+                Para futuras implementaciones, puedes mostrar una tabla con
+                información de cada pedido y la opción de ver detalles
+                específicos de cada uno.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
