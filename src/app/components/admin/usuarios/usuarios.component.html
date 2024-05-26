@@ -1,0 +1,143 @@
+<div class="mt-4">
+  <div class="container">
+    <table
+      datatable
+      [dtOptions]="dtOptions"
+      class="table table-bordered table-hover"
+    >
+      <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido Paterno</th>
+          <th>Apellido Materno</th>
+          <th>Compañia</th>
+          <th>País</th>
+          <th>Email</th>
+          <th>Email Verificado</th>
+          <th>Contraseña</th>
+          <th>Editar</th>
+          <th>Borrar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let user of users">
+          <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.lastName }}</td>
+            <td>{{ user.lastName2 }}</td>
+            <td>{{ user.company }}</td>
+            <td>{{ user.country }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.emailVerified }}</td>
+            <td>{{ user.password }}</td>
+
+            <td>
+              <button
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#ModalEditar"
+                (click)="setEditUser(user)"
+              >
+                <i class="bx bx-edit-alt" style="font-size: 25px"></i>
+              </button>
+            </td>
+            <td>
+              <button
+                class="btn btn-danger"
+                data-bs-toggle="modal"
+                data-bs-target="#ModalBorrar"
+              >
+                <i class="bx bx-trash" style="font-size: 25px"></i>
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Agrega el modal de edición -->
+<div
+  class="modal fade"
+  id="ModalEditar"
+  tabindex="-1"
+  aria-labelledby="editModalLabel"
+  aria-hidden="true"
+>
+  <!-- Contenido del modal -->
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Editar Usuario</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulario para editar usuario -->
+        <form>
+          <div class="mb-3">
+            <label for="editFirstName" class="form-label">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="editFirstName"
+              [(ngModel)]="userToEdit.firstName"
+            />
+          </div>
+          <!-- Agrega más campos de formulario según sea necesario -->
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="guardarCambios()"
+        >
+          Guardar Cambios
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para Borrar -->
+<div
+  class="modal fade"
+  id="ModalBorrar"
+  tabindex="-1"
+  aria-labelledby="deleteModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Confirmar Borrado</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        ¿Estás seguro de que deseas borrar este usuario?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-danger">Borrar</button>
+      </div>
+    </div>
+  </div>
+</div>

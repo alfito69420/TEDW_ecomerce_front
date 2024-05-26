@@ -25,6 +25,17 @@ import { AboutUserComponent } from './components/usuario/about-user/about-user.c
 import { OpcionesComponent } from './components/usuario/opciones/opciones.component';
 import { HistorialOrdenesComponent } from './components/usuario/historial-ordenes/historial-ordenes.component';
 import { GraficasComponent } from './components/usuario/graficas/graficas.component';
+import { DataTablesModule } from 'angular-datatables';
+import { FormsModule } from '@angular/forms';
+import * as $ from 'jquery';
+import { UsuariosComponent } from './components/admin/usuarios/usuarios.component';
+import { ProductosComponent } from './components/admin/productos/productos.component';
+import { OrdenesCompraComponent } from './components/admin/ordenes-compra/ordenes-compra.component';
+import { CategoriasComponent } from './components/admin/categorias/categorias.component';
+import { ProveedoresComponent } from './components/admin/proveedores/proveedores.component';
+import { CuponesComponent } from './components/admin/cupones/cupones.component';
+import { MetodosPagoComponent } from './components/admin/metodos-pago/metodos-pago.component';
+import { NavAdminComponent } from './components/admin/nav-admin/nav-admin.component';
 
 @NgModule({
   declarations: [
@@ -47,8 +58,18 @@ import { GraficasComponent } from './components/usuario/graficas/graficas.compon
     OpcionesComponent,
     HistorialOrdenesComponent,
     GraficasComponent,
+    UsuariosComponent,
+    ProductosComponent,
+    OrdenesCompraComponent,
+    CategoriasComponent,
+    ProveedoresComponent,
+    CuponesComponent,
+    MetodosPagoComponent,
+    NavAdminComponent,
   ],
   imports: [
+    DataTablesModule,
+    FormsModule,
     BrowserModule,
     RouterModule.forRoot([
       //Aquí definimos las rutas con base a los componentes que se vayan creando
@@ -67,6 +88,13 @@ import { GraficasComponent } from './components/usuario/graficas/graficas.compon
       { path: 'user/opciones', component: OpcionesComponent },
       { path: 'user/historial', component: HistorialOrdenesComponent },
       { path: 'user/graficas', component: GraficasComponent },
+      { path: 'admin/usuarios', component: UsuariosComponent },
+      { path: 'admin/productos', component: ProductosComponent },
+      { path: 'admin/ordenes-compra', component: OrdenesCompraComponent },
+      { path: 'admin/categorias', component: CategoriasComponent },
+      { path: 'admin/proveedores', component: ProveedoresComponent },
+      { path: 'admin/cupones', component: CuponesComponent },
+      { path: 'admin/metodos-pago', component: MetodosPagoComponent },
       { path: '**', redirectTo: '/', pathMatch: 'full' },
     ]),
   ],

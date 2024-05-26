@@ -12,6 +12,7 @@ export class AppComponent {
 
   showFooter = true;
   showNavUsers = true;
+  showNavAdmin = true;
   showNavNotUsers = true;
 
   constructor(private router: Router) {}
@@ -26,7 +27,15 @@ export class AppComponent {
       )
       .subscribe((event: NavigationEnd) => {
         // Lógica para showFooter
-        this.showFooter = !event.url.includes('/login');
+        this.showFooter =
+          !event.url.includes('/login') &&
+          !event.url.includes('/admin/usuarios') &&
+          !event.url.includes('/admin/productos') &&
+          !event.url.includes('/admin/ordenes-compra') &&
+          !event.url.includes('/admin/categorias') &&
+          !event.url.includes('/admin/proveedores') &&
+          !event.url.includes('/admin/cupones') &&
+          !event.url.includes('/admin/metodos-pago');
 
         // Lógica para showNavUsers
         this.showNavUsers =
@@ -38,7 +47,16 @@ export class AppComponent {
           event.url.includes('/user/cart') ||
           event.url.includes('/user/opciones');
 
-        this.showNavNotUsers = !this.showNavUsers;
+        this.showNavAdmin =
+          event.url.includes('/admin/usuarios') ||
+          event.url.includes('/admin/productos') ||
+          event.url.includes('/admin/ordenes-compra') ||
+          event.url.includes('/admin/categorias') ||
+          event.url.includes('/admin/proveedores') ||
+          event.url.includes('/admin/cupones') ||
+          event.url.includes('/admin/metodos-pago');
+
+        this.showNavNotUsers = !this.showNavUsers && !this.showNavAdmin;
       });
   }
 }
