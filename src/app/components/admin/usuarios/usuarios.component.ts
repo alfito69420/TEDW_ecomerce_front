@@ -11,6 +11,16 @@ export class UsuariosComponent implements OnInit {
   users: any[] = [];
   userToEdit: any = {};
   userToDelete: any = {};
+  newUser: any = {
+    firstName: '',
+    lastName: '',
+    lastName2: '',
+    company: '',
+    country: '',
+    email: '',
+    emailVerified: false,
+    password: '',
+  };
 
   constructor() {}
 
@@ -65,5 +75,23 @@ export class UsuariosComponent implements OnInit {
     console.log('Borrando usuario:', this.userToDelete);
     this.users = this.users.filter((user) => user.id !== this.userToDelete.id);
     this.userToDelete = {};
+  }
+
+  agregarUsuario() {
+    const newId =
+      this.users.length > 0 ? this.users[this.users.length - 1].id + 1 : 1;
+    const nuevoUsuario = { id: newId, ...this.newUser };
+    this.users.push(nuevoUsuario);
+    console.log('Usuario añadido:', nuevoUsuario);
+    this.newUser = {
+      firstName: '',
+      lastName: '',
+      lastName2: '',
+      company: '',
+      country: '',
+      email: '',
+      emailVerified: false,
+      password: '',
+    };
   }
 }

@@ -11,6 +11,9 @@ export class MetodosPagoComponent implements OnInit {
   paymentMethods: any[] = [];
   paymentMethodToEdit: any = {};
   paymentMethodToDelete: any = {};
+  newPaymentMethod: any = {
+    metodo_de_pago: '',
+  };
 
   constructor() {}
 
@@ -47,6 +50,13 @@ export class MetodosPagoComponent implements OnInit {
       'Guardando cambios del método de pago:',
       this.paymentMethodToEdit
     );
+    // Actualiza el método de pago en la lista
+    const index = this.paymentMethods.findIndex(
+      (pm) => pm.id === this.paymentMethodToEdit.id
+    );
+    if (index !== -1) {
+      this.paymentMethods[index] = { ...this.paymentMethodToEdit };
+    }
     this.paymentMethodToEdit = {};
   }
 
@@ -56,5 +66,18 @@ export class MetodosPagoComponent implements OnInit {
       (paymentMethod) => paymentMethod.id !== this.paymentMethodToDelete.id
     );
     this.paymentMethodToDelete = {};
+  }
+
+  agregarMetodoPago() {
+    const newId =
+      this.paymentMethods.length > 0
+        ? this.paymentMethods[this.paymentMethods.length - 1].id + 1
+        : 1;
+    const nuevoMetodo = { id: newId, ...this.newPaymentMethod };
+    this.paymentMethods.push(nuevoMetodo);
+    console.log('Método de pago añadido:', nuevoMetodo);
+    this.newPaymentMethod = {
+      metodo_de_pago: '',
+    };
   }
 }
