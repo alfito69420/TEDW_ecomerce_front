@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
 import { Config } from 'datatables.net';
 
 @Component({
@@ -11,6 +10,7 @@ export class UsuariosComponent implements OnInit {
   dtOptions: Config = {};
   users: any[] = [];
   userToEdit: any = {};
+  userToDelete: any = {};
 
   constructor() {}
 
@@ -45,15 +45,25 @@ export class UsuariosComponent implements OnInit {
     ];
 
     this.userToEdit = {};
+    this.userToDelete = {};
   }
 
   setEditUser(user: any) {
     this.userToEdit = { ...user };
   }
 
+  setDeleteUser(user: any) {
+    this.userToDelete = { ...user };
+  }
+
   guardarCambios() {
     console.log('Guardando cambios del usuario:', this.userToEdit);
-
     this.userToEdit = {};
+  }
+
+  borrarUsuario() {
+    console.log('Borrando usuario:', this.userToDelete);
+    this.users = this.users.filter((user) => user.id !== this.userToDelete.id);
+    this.userToDelete = {};
   }
 }

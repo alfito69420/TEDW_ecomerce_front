@@ -1349,3 +1349,14 @@ h6 span {
   color: #ff0000;
   /* Ajusta el color según tu esquema de colores */
 }
+
+/* Style de dataTables */
+.dt-input {
+  margin-right: 10px !important;
+}
+
+.container-tables {
+  /* display: flex;
+  justify-content: center; */
+  translate: 5% 0 !important;
+}
