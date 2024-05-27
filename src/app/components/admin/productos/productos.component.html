@@ -1,1 +1,190 @@
-<p>productos works!</p>
+<div class="mt-4">
+  <div class="container container-tables">
+    <table
+      datatable
+      [dtOptions]="dtOptions"
+      class="table table-bordered table-hover"
+    >
+      <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Categoria</th>
+          <th>Foto</th>
+          <th>Editar</th>
+          <th>Borrar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let product of products">
+          <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.nombre }}</td>
+            <td>{{ product.descripcion }}</td>
+            <td>{{ product.precio }}</td>
+            <td>{{ product.cantidad }}</td>
+            <td>{{ product.id_cat_producto }}</td>
+            <td>{{ product.photo }}</td>
+            <td>
+              <button
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#ModalEditar"
+                (click)="setEditProduct(product)"
+              >
+                <i class="bx bx-edit-alt" style="font-size: 25px"></i>
+              </button>
+            </td>
+            <td>
+              <button
+                class="btn btn-danger"
+                data-bs-toggle="modal"
+                data-bs-target="#ModalBorrar"
+              >
+                <i class="bx bx-trash" style="font-size: 25px"></i>
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Agrega el modal de edición -->
+<div
+  class="modal fade"
+  id="ModalEditar"
+  tabindex="-1"
+  aria-labelledby="editModalLabel"
+  aria-hidden="true"
+>
+  <!-- Contenido del modal -->
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Editar Producto</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulario para editar usuario -->
+        <form>
+          <div class="mb-3">
+            <label for="editNombre" class="form-label">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="editNombre"
+              [(ngModel)]="productToEdit.nombre"
+              name="nombre"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="editDescripcion" class="form-label">Descripción</label>
+            <input
+              type="text"
+              class="form-control"
+              id="editDescripcion"
+              [(ngModel)]="productToEdit.descripcion"
+              name="descripcion"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="editPrecio" class="form-label">Precio</label>
+            <input
+              type="text"
+              class="form-control"
+              id="editPrecio"
+              [(ngModel)]="productToEdit.precio"
+              name="precio"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="editCantidad" class="form-label">Cantidad</label>
+            <input
+              type="number"
+              class="form-control"
+              id="editCantidad"
+              [(ngModel)]="productToEdit.cantidad"
+              name="cantidad"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="editCategoria" class="form-label">Categoria</label>
+            <input
+              type="text"
+              class="form-control"
+              id="editCategoria"
+              [(ngModel)]="productToEdit.id_cat_producto"
+              name="categoria"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="editFoto" class="form-label">Foto</label>
+            <input
+              type="text"
+              class="form-control"
+              id="editFoto"
+              [(ngModel)]="productToEdit.photo"
+              name="photo"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="guardarCambios()"
+        >
+          Guardar Cambios
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para Borrar -->
+<div
+  class="modal fade"
+  id="ModalBorrar"
+  tabindex="-1"
+  aria-labelledby="deleteModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Confirmar Borrado</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        ¿Estás seguro de que deseas borrar este producto?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-danger" (click)="borrarProducto()">
+          Borrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

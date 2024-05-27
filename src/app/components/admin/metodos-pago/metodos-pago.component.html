@@ -1,1 +1,135 @@
-<p>metodos-pago works!</p>
+<div class="mt-4">
+  <div class="container container-tables">
+    <table
+      datatable
+      [dtOptions]="dtOptions"
+      class="table table-bordered table-hover"
+    >
+      <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>Método de Pago</th>
+          <th>Editar</th>
+          <th>Borrar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let paymentMethod of paymentMethods">
+          <tr>
+            <td>{{ paymentMethod.id }}</td>
+            <td>{{ paymentMethod.metodo_de_pago }}</td>
+            <td>
+              <button
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#ModalEditar"
+                (click)="setEditPaymentMethod(paymentMethod)"
+              >
+                <i class="bx bx-edit-alt" style="font-size: 25px"></i>
+              </button>
+            </td>
+            <td>
+              <button
+                class="btn btn-danger"
+                data-bs-toggle="modal"
+                data-bs-target="#ModalBorrar"
+                (click)="setDeletePaymentMethod(paymentMethod)"
+              >
+                <i class="bx bx-trash" style="font-size: 25px"></i>
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal para Editar -->
+<div
+  class="modal fade"
+  id="ModalEditar"
+  tabindex="-1"
+  aria-labelledby="editModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Editar Método de Pago</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="editMetodoPago" class="form-label"
+              >Método de Pago</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="editMetodoPago"
+              [(ngModel)]="paymentMethodToEdit.metodo_de_pago"
+              name="metodo_de_pago"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="guardarCambios()"
+        >
+          Guardar Cambios
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para Borrar -->
+<div
+  class="modal fade"
+  id="ModalBorrar"
+  tabindex="-1"
+  aria-labelledby="deleteModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Confirmar Borrado</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        ¿Estás seguro de que deseas borrar este método de pago?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancelar
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="borrarMetodoPago()"
+        >
+          Borrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

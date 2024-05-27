@@ -3,7 +3,7 @@
   aria-label="Furni navigation bar"
 >
   <div class="container">
-    <a class="navbar-brand" routerLink="/user/home"
+    <a class="navbar-brand" routerLink="/admin/usuarios"
       >ADMINISTRADOR<span>.</span></a
     >
 
@@ -37,9 +37,9 @@
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="/admin/proveedores">Proveedores</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
+        <!-- <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="/admin/cupones">Cupones</a>
-        </li>
+        </li> -->
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="/admin/metodos-pago">Metodos pago</a>
         </li>
@@ -87,7 +87,9 @@
             <li>
               <button
                 class="dropdown-item drop-item"
-                routerLink="/user/opciones"
+                id="editProfileButton"
+                data-bs-toggle="modal"
+                data-bs-target="#editProfileModal"
               >
                 Mi cuenta <i class="bx bx-edit"></i>
               </button>
@@ -151,15 +153,6 @@
                     class="form-control"
                     id="editemail"
                     value="juan.perez@example.com"
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="editAddress" class="form-label">Dirección</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="editAddress"
-                    value="Calle Falsa 123"
                   />
                 </div>
               </form>
