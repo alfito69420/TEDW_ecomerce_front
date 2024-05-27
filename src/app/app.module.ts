@@ -3,7 +3,7 @@ import {
   BrowserModule,
   provideClientHydration,
 } from '@angular/platform-browser';
-
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 //import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
@@ -71,6 +71,7 @@ import { NavAdminComponent } from './components/admin/nav-admin/nav-admin.compon
     DataTablesModule,
     FormsModule,
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot([
       //Aquí definimos las rutas con base a los componentes que se vayan creando
       { path: '', component: HomeComponent },
@@ -98,7 +99,7 @@ import { NavAdminComponent } from './components/admin/nav-admin/nav-admin.compon
       { path: '**', redirectTo: '/', pathMatch: 'full' },
     ]),
   ],
-  providers: [],
+  providers: [provideHttpClient(withFetch())],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

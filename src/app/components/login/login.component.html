@@ -15,7 +15,7 @@
                     <div class="section text-center">
                       <h4 class="mb-4 pb-3">Log In</h4>
 
-                      <form action="https://www.web-leb.com/code" method="POST">
+                      <form #loginForm = "ngForm" (ngSubmit)="login(loginForm)">
                         <div class="form-group">
                           <input
                             type="email"
@@ -23,16 +23,18 @@
                             class="form-style"
                             placeholder="Correo"
                             required
+                            [(ngModel)] = "usuario.email"
                           />
                           <i class="input-icon bx bx-at"></i>
                         </div>
                         <div class="form-group mt-2">
                           <input
                             type="password"
-                            name="password"
+                            name="contrasena"
                             class="form-style"
                             placeholder="Contraseña"
                             required
+                            [(ngModel)] = "usuario.contrasena"
                           />
                           <i class="input-icon bx bx-lock"></i>
                         </div>
@@ -54,26 +56,39 @@
                     <div class="section text-center">
                       <h4 class="mb-3 pb-3">Sign Up</h4>
 
-                      <form action="" method="POST">
+                      <form #registerForm = "ngForm" (ngSubmit)="register(registerForm)">
                         <div class="form-group">
                           <input
                             type="text"
-                            name="full_name"
+                            name="nombre"
                             class="form-style"
-                            placeholder="Nombre Completo"
+                            placeholder="Nombre"
                             required
+                            [(ngModel)] = "usuario.nombre"
                           />
                           <i class="input-icon bx bx-user"></i>
                         </div>
-                        <div class="form-group mt-2">
+                        <div class="form-group">
                           <input
-                            type="tel"
-                            name="phone_number"
+                            type="text"
+                            name="ap_paterno"
                             class="form-style"
-                            placeholder="Número de Telefono"
+                            placeholder="Apellido Paterno"
                             required
+                            [(ngModel)] = "usuario.ap_paterno "
                           />
-                          <i class="input-icon bx bx-phone"></i>
+                          <i class="input-icon bx bx-user"></i>
+                        </div>
+                        <div class="form-group">
+                          <input
+                            type="text"
+                            name="ap_materno"
+                            class="form-style"
+                            placeholder="Apellido Materno"
+                            required
+                            [(ngModel)] = "usuario.ap_materno "
+                          />
+                          <i class="input-icon bx bx-user"></i>
                         </div>
                         <div class="form-group mt-2">
                           <input
@@ -82,16 +97,18 @@
                             class="form-style"
                             placeholder="Correo"
                             required
+                            [(ngModel)] = "usuario.email"
                           />
                           <i class="input-icon bx bx-at"></i>
                         </div>
                         <div class="form-group mt-2">
                           <input
                             type="password"
-                            name="password"
+                            name="contrasena"
                             class="form-style"
                             placeholder="Contraseña"
                             required
+                            [(ngModel)] = "usuario.contrasena"
                           />
                           <i class="input-icon bx bx-lock"></i>
                         </div>
