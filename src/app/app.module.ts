@@ -23,7 +23,6 @@ import { IndexComponent } from './components/usuario/index/index.component';
 import { NavUsuarioComponent } from './components/usuario/nav-usuario/nav-usuario.component';
 import { CartComponent } from './components/usuario/cart/cart.component';
 import { ShopUserComponent } from './components/usuario/shop-user/shop-user.component';
-import { ServicesUserComponent } from './components/usuario/services-user/services-user.component';
 import { ContactUserComponent } from './components/usuario/contact-user/contact-user.component';
 import { AboutUserComponent } from './components/usuario/about-user/about-user.component';
 import { OpcionesComponent } from './components/usuario/opciones/opciones.component';
@@ -87,7 +86,6 @@ import { NavAdminComponent } from './components/admin/nav-admin/nav-admin.compon
       { path: 'user/home', component: IndexComponent },
       { path: 'user/cart', component: CartComponent },
       { path: 'user/shop', component: ShopUserComponent },
-      { path: 'user/services', component: ServicesUserComponent },
       { path: 'user/contact', component: ContactUserComponent },
       { path: 'user/about', component: AboutUserComponent },
       { path: 'user/opciones', component: OpcionesComponent },
@@ -106,4 +104,4 @@ import { NavAdminComponent } from './components/admin/nav-admin/nav-admin.compon
   providers: [provideHttpClient(withFetch())],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
