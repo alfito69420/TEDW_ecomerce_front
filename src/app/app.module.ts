@@ -3,7 +3,11 @@ import {
   BrowserModule,
   provideClientHydration,
 } from '@angular/platform-browser';
-import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import {
+  HttpClientModule,
+  provideHttpClient,
+  withFetch,
+} from '@angular/common/http';
 //import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
@@ -52,7 +56,7 @@ import { NavAdminComponent } from './components/admin/nav-admin/nav-admin.compon
     NavUsuarioComponent,
     CartComponent,
     ShopUserComponent,
-    ServicesUserComponent,
+
     ContactUserComponent,
     AboutUserComponent,
     OpcionesComponent,
