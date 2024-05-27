@@ -1,1 +1,159 @@
-<p>categorias works!</p>
+<div class="mt-4">
+  <div class="container container-tables">
+    <table
+      datatable
+      [dtOptions]="dtOptions"
+      class="table table-bordered table-hover"
+    >
+      <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Proveedor</th>
+          <th>Editar</th>
+          <th>Borrar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let category of categories">
+          <tr>
+            <td>{{ category.id }}</td>
+            <td>{{ category.nombre }}</td>
+            <td>{{ category.descripcion }}</td>
+            <td>{{ category.id_proveedor }}</td>
+            <td>
+              <button
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#ModalEditar"
+                (click)="setEditCategory(category)"
+              >
+                <i class="bx bx-edit-alt" style="font-size: 25px"></i>
+              </button>
+            </td>
+            <td>
+              <button
+                class="btn btn-danger"
+                data-bs-toggle="modal"
+                data-bs-target="#ModalBorrar"
+                (click)="setDeleteCategory(category)"
+              >
+                <i class="bx bx-trash" style="font-size: 25px"></i>
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Agrega el modal de edición -->
+<div
+  class="modal fade"
+  id="ModalEditar"
+  tabindex="-1"
+  aria-labelledby="editModalLabel"
+  aria-hidden="true"
+>
+  <!-- Contenido del modal -->
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Editar Categoría</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulario para editar categoría -->
+        <form>
+          <div class="mb-3">
+            <label for="editNombre" class="form-label">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="editNombre"
+              [(ngModel)]="categoryToEdit.nombre"
+              name="nombre"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="editDescripcion" class="form-label">Descripción</label>
+            <input
+              type="text"
+              class="form-control"
+              id="editDescripcion"
+              [(ngModel)]="categoryToEdit.descripcion"
+              name="descripcion"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="editIdProveedor" class="form-label">ID Proveedor</label>
+            <input
+              type="text"
+              class="form-control"
+              id="editIdProveedor"
+              [(ngModel)]="categoryToEdit.id_proveedor"
+              name="id_proveedor"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="guardarCambios()"
+        >
+          Guardar Cambios
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para Borrar -->
+<div
+  class="modal fade"
+  id="ModalBorrar"
+  tabindex="-1"
+  aria-labelledby="deleteModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Confirmar Borrado</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        ¿Estás seguro de que deseas borrar esta categoría?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancelar
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="borrarCategoria()"
+        >
+          Borrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
