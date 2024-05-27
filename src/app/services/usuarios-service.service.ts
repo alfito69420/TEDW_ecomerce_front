@@ -28,9 +28,9 @@ export class UsuariosServiceService {
     return this._http.get(this.url+"products/get-all"+filtro, {headers:headers})
   }
 
-  obtener_categorias(): Observable<any> {
+  obtener_categorias(): Observable<any[]> {
     let headers = new HttpHeaders().set('Content-Type', 'application/json')
-    return this._http.get(this.url + 'categories/get-all', { headers: headers })
+    return this._http.get<any[]>(this.url + 'categories/get-all', { headers: headers })
   }
 }
 

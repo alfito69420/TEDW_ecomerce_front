@@ -56,10 +56,10 @@
           <!-- Empieza contenedor de productos -->
           <div class="col-md-4 mb-4" *ngFor="let producto of productos">
             <div class="card">
-              <img [src]="producto.imageUrl" class="card-img-top" [alt]="producto.name">
+              <img [src]="producto.photo" class="card-img-top" [alt]="producto.nombre">
               <div class="card-body">
-                <h5 class="card-title">{{ producto.name }}</h5>
-                <p class="card-text">{{ producto.price | currency }}</p>
+                <h5 class="card-title">{{ producto.nombre }}</h5>
+                <p class="card-text">{{ producto.precio | currency }}</p>
                 <span class="icon-cross">
                   <img src="../../../assets/images/cross.svg" class="img-fluid">
                 </span>
