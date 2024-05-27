@@ -1351,3 +1351,14 @@ h6 span {
   justify-content: center; */
   translate: 5% 0 !important;
 }
+
+/* Grafica */
+
+.container-graficas {
+  display: flex;
+  justify-content: center;
+}
+
+.container-graficas>div {
+  margin: 0 30px;
+}
