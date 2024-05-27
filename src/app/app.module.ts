@@ -31,7 +31,7 @@ import { HistorialOrdenesComponent } from './components/usuario/historial-ordene
 import { GraficasComponent } from './components/usuario/graficas/graficas.component';
 import { DataTablesModule } from 'angular-datatables';
 import { FormsModule } from '@angular/forms';
-import * as $ from 'jquery';
+//import * as $ from 'jquery';
 import { UsuariosComponent } from './components/admin/usuarios/usuarios.component';
 import { ProductosComponent } from './components/admin/productos/productos.component';
 import { OrdenesCompraComponent } from './components/admin/ordenes-compra/ordenes-compra.component';
@@ -106,4 +106,4 @@ import { NavAdminComponent } from './components/admin/nav-admin/nav-admin.compon
   providers: [provideHttpClient(withFetch())],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

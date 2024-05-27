@@ -245,6 +245,10 @@ a.more {
   margin-left: 18px !important;
 }
 
+.py-5-5{
+  padding-top: 0.5rem !important;
+}
+
 .size-banner {
   height: auto;
 }
@@ -1014,6 +1018,11 @@ textarea {
 
 .site-blocks-table .product-thumbnail {
   width: 200px;
+  margin-bottom: 0px !important;
+}
+
+.mt-4-4{
+  margin-top: 0.5rem !important;
 }
 
 .site-blocks-table .btn {
@@ -1122,7 +1131,7 @@ h6 span {
 }
 
 .full-height {
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 [type="checkbox"]:checked,
@@ -1176,7 +1185,7 @@ h6 span {
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   perspective: 800px;
-  margin-top: 60px;
+  margin-top: 20px;
 }
 
 .card-3d-wrapper {
@@ -1350,4 +1359,15 @@ h6 span {
   /* display: flex;
   justify-content: center; */
   translate: 5% 0 !important;
+}
+
+/* Grafica */
+
+.container-graficas {
+  display: flex;
+  justify-content: center;
+}
+
+.container-graficas>div {
+  margin: 0 30px;
 }

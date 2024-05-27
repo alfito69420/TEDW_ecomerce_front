@@ -1,144 +1,74 @@
 <!-- Start Hero Section -->
-<div class="hero no-padding">
+<div class="hero">
   <div class="container">
-    <div class="row justify-content-between ">
-      <div class="col-lg-5 portada">
+    <div class="row justify-content-between">
+      <div class="col-lg-5">
         <div class="intro-excerpt">
-          <h1>Encuentra tu estilo único...</h1>
+          <h1>
+            Encuentra tu Estilo Único
+          </h1>
+          <p class="mb-4">
+            Explora nuestra amplia gama de prendas y accesorios diseñados para realzar tu estilo personal.
+            Con materiales de primera calidad y diseños exclusivos, cada compra es una oportunidad para expresarte
+            y destacar con autenticidad.
+          </p>
         </div>
       </div>
-      <p class="mb-4">
-        Explora nuestra amplia gama de prendas y accesorios diseñados para realzar tu estilo personal.
-        Con materiales de primera calidad y diseños exclusivos, cada compra es una oportunidad para expresarte
-        y destacar con autenticidad.
-      </p>
       <div class="col-lg-7">
-
+        <div class="hero-img-wrap">
+          <img src="../../../assets/images/portadaShop.png" class="img-fluid" style=" width: 93%; margin-top: -39pt; left: 10%;" />
+        </div>
       </div>
     </div>
   </div>
 </div>
 <!-- End Hero Section -->
 
-
-
-<div class="untree_co-section product-section before-footer-section">
-  <div class="container">
-    <div class="row size-row">
-
-      <!-- Start Column 1 -->
-      <div class="col-12 col-md-4 col-lg-3 mb-5">
-        <a class="product-item" href="#">
-          <img src="./../assets/images/product-3.png" class="img-fluid product-thumbnail">
-          <h3 class="product-title">Nordic Chair</h3>
-          <strong class="product-price">$50.00</strong>
-
-          <span class="icon-cross">
-            <img src="./../assets/images/cross.svg" class="img-fluid">
-          </span>
-        </a>
+<!--Star contenido -->
+<div class="container mt-5">
+  <div class="row">
+    <!-- Menú de categorías -->
+    <div class="col-lg-3">
+      <h4>Categorías de Ropa</h4>
+      <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action">Ropa para Mujer</a>
+        <a href="#" class="list-group-item list-group-item-action">Ropa para Hombre</a>
+        <a href="#" class="list-group-item list-group-item-action">Ropa Infantil</a>
+        <!-- Agrega más categorías según sea necesario -->
       </div>
-      <!-- End Column 1 -->
+    </div>
+    <!--End Menu-->
 
-      <!-- Start Column 2 -->
-      <div class="col-12 col-md-4 col-lg-3 mb-5">
-        <a class="product-item" href="#">
-          <img src="./../assets/images/product-1.png" class="img-fluid product-thumbnail">
-          <h3 class="product-title">Nordic Chair</h3>
-          <strong class="product-price">$50.00</strong>
-
-          <span class="icon-cross">
-            <img src="./../assets/images/cross.svg" class="img-fluid">
-          </span>
-        </a>
+    <!--start Contenedor productos-->
+    <div class="col-lg-9">
+      <h4>Productos</h4>
+      <div class="row">
+        <!--Start barra de navegacion-->
+        <form>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Buscar ropa...">
+            <button class="btn btn-outline-secondary" type="button">Buscar</button>
+          </div>
+        </form>
+        <!--End barra de navegacion-->
+        <!-- Start Column 1 -->
+        <div class="row">
+          <!-- Empieza contenedor de productos -->
+          <div class="col-md-4 mb-4" *ngFor="let producto of productos">
+            <div class="card">
+              <img [src]="producto.photo" class="card-img-top" [alt]="producto.nombre">
+              <div class="card-body">
+                <h5 class="card-title">{{ producto.nombre }}</h5>
+                <p class="card-text">{{ producto.precio | currency }}</p>
+                <span class="icon-cross">
+                  <img src="../../../assets/images/cross.svg" class="img-fluid">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- End Column 1 -->
+        </div>
       </div>
-      <!-- End Column 2 -->
-
-      <!-- Start Column 3 -->
-      <div class="col-12 col-md-4 col-lg-3 mb-5">
-        <a class="product-item" href="#">
-          <img src="./../assets/images/product-2.png" class="img-fluid product-thumbnail">
-          <h3 class="product-title">Kruzo Aero Chair</h3>
-          <strong class="product-price">$78.00</strong>
-
-          <span class="icon-cross">
-            <img src="./../assets/images/cross.svg" class="img-fluid">
-          </span>
-        </a>
-      </div>
-      <!-- End Column 3 -->
-
-      <!-- Start Column 4 -->
-      <div class="col-12 col-md-4 col-lg-3 mb-5">
-        <a class="product-item" href="#">
-          <img src="./../assets/images/product-3.png" class="img-fluid product-thumbnail">
-          <h3 class="product-title">Ergonomic Chair</h3>
-          <strong class="product-price">$43.00</strong>
-
-          <span class="icon-cross">
-            <img src="./../assets/images/cross.svg" class="img-fluid">
-          </span>
-        </a>
-      </div>
-      <!-- End Column 4 -->
-
-
-      <!-- Start Column 1 -->
-      <div class="col-12 col-md-4 col-lg-3 mb-5">
-        <a class="product-item" href="#">
-          <img src="./../assets/images/product-3.png" class="img-fluid product-thumbnail">
-          <h3 class="product-title">Nordic Chair</h3>
-          <strong class="product-price">$50.00</strong>
-
-          <span class="icon-cross">
-            <img src="./../assets/images/cross.svg" class="img-fluid">
-          </span>
-        </a>
-      </div>
-      <!-- End Column 1 -->
-
-      <!-- Start Column 2 -->
-      <div class="col-12 col-md-4 col-lg-3 mb-5">
-        <a class="product-item" href="#">
-          <img src="./../assets/images/product-1.png" class="img-fluid product-thumbnail">
-          <h3 class="product-title">Nordic Chair</h3>
-          <strong class="product-price">$50.00</strong>
-
-          <span class="icon-cross">
-            <img src="images/cross.svg" class="img-fluid">
-          </span>
-        </a>
-      </div>
-      <!-- End Column 2 -->
-
-      <!-- Start Column 3 -->
-      <div class="col-12 col-md-4 col-lg-3 mb-5">
-        <a class="product-item" href="#">
-          <img src="./../assets/images/product-2.png" class="img-fluid product-thumbnail">
-          <h3 class="product-title">Kruzo Aero Chair</h3>
-          <strong class="product-price">$78.00</strong>
-
-          <span class="icon-cross">
-            <img src="./../assets/images/cross.svg" class="img-fluid">
-          </span>
-        </a>
-      </div>
-      <!-- End Column 3 -->
-
-      <!-- Start Column 4 -->
-      <div class="col-12 col-md-4 col-lg-3 mb-5">
-        <a class="product-item" href="#">
-          <img src="./../assets/images/product-3.png" class="img-fluid product-thumbnail">
-          <h3 class="product-title">Ergonomic Chair</h3>
-          <strong class="product-price">$43.00</strong>
-
-          <span class="icon-cross">
-            <img src="./../assets/images/cross.svg" class="img-fluid">
-          </span>
-        </a>
-      </div>
-      <!-- End Column 4 -->
-
     </div>
   </div>
 </div>
