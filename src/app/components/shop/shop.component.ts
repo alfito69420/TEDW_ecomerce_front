@@ -14,7 +14,7 @@ export class ShopComponent implements OnInit {
   public productos:Array<any> = []
   public filter_producto = ''
 
-  constructor(private _usuarioService: UsuariosServiceService) {
+  constructor(private _invitadoService: UsuariosServiceService) {
 
   }
 
@@ -23,7 +23,7 @@ export class ShopComponent implements OnInit {
   }
 
   getProducts(){
-    this._usuarioService.vista_productos(this.filter_producto).subscribe(
+    this._invitadoService.vista_productos(this.filter_producto).subscribe(
       response => {
         console.log(response);
         this.productos = response.data;
