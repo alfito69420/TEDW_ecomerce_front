@@ -12,6 +12,14 @@ export class OrdenesCompraComponent implements OnInit, AfterViewInit {
   orders: any[] = [];
   orderToEdit: any = {};
   orderToDelete: any = {};
+  newOrder: any = {
+    monto_descuento: '',
+    monto_total: '',
+    cantidad: 0,
+    id_usuario: '',
+    id_producto: '',
+    fecha: '',
+  };
 
   constructor() {}
 
@@ -26,7 +34,7 @@ export class OrdenesCompraComponent implements OnInit, AfterViewInit {
         monto_descuento: 10,
         monto_total: 90,
         cantidad: 100,
-        categoria: 'Electrónica',
+        id_usuario: 'usuario1',
         id_producto: 'producto1',
         fecha: '2024-05-27',
       },
@@ -35,7 +43,7 @@ export class OrdenesCompraComponent implements OnInit, AfterViewInit {
         monto_descuento: 20,
         monto_total: 180,
         cantidad: 200,
-        categoria: 'Ropa',
+        id_usuario: 'usuario2',
         id_producto: 'producto2',
         fecha: '2024-05-28',
       },
@@ -69,10 +77,10 @@ export class OrdenesCompraComponent implements OnInit, AfterViewInit {
 
     const userCategories = this.orders.reduce(
       (categories: { [key: string]: number }, order) => {
-        if (order.categoria in categories) {
-          categories[order.categoria]++;
+        if (order.id_usuario in categories) {
+          categories[order.id_usuario]++;
         } else {
-          categories[order.categoria] = 1;
+          categories[order.id_usuario] = 1;
         }
         return categories;
       },
@@ -85,7 +93,7 @@ export class OrdenesCompraComponent implements OnInit, AfterViewInit {
         labels: Object.keys(userCategories),
         datasets: [
           {
-            label: 'Cantidad de Compras por Categoría de Usuario',
+            label: 'Cantidad de Compras por Usuario',
             data: Object.values(userCategories),
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
             borderColor: 'rgba(255, 99, 132, 1)',
@@ -175,5 +183,21 @@ export class OrdenesCompraComponent implements OnInit, AfterViewInit {
       (order) => order.id !== this.orderToDelete.id
     );
     this.orderToDelete = {};
+  }
+
+  agregarOrden() {
+    const newId =
+      this.orders.length > 0 ? this.orders[this.orders.length - 1].id + 1 : 1;
+    const nuevaOrden = { id: newId, ...this.newOrder };
+    this.orders.push(nuevaOrden);
+    console.log('Orden añadida:', nuevaOrden);
+    this.newOrder = {
+      monto_descuento: '',
+      monto_total: '',
+      cantidad: 0,
+      id_usuario: '',
+      id_producto: '',
+      fecha: '',
+    };
   }
 }

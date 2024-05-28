@@ -10,6 +10,15 @@ export class ProductosComponent implements OnInit {
   dtOptions: Config = {};
   products: any[] = [];
   productToEdit: any = {};
+  productToDelete: any = {};
+  newProduct: any = {
+    nombre: '',
+    descripcion: '',
+    precio: '',
+    cantidad: 0,
+    id_cat_producto: '',
+    photo: '',
+  };
 
   constructor() {}
 
@@ -40,19 +49,45 @@ export class ProductosComponent implements OnInit {
     ];
 
     this.productToEdit = {};
+    this.productToDelete = {};
   }
 
   setEditProduct(product: any) {
     this.productToEdit = { ...product };
   }
 
+  setDeleteProduct(product: any) {
+    this.productToDelete = { ...product };
+  }
+
   guardarCambios() {
     console.log('Guardando cambios del Producto:', this.productToEdit);
-
     this.productToEdit = {};
   }
 
   borrarProducto() {
-    console.log('Producto borrado:', this.productToEdit);
+    console.log('Borrando producto:', this.productToDelete);
+    this.products = this.products.filter(
+      (product) => product.id !== this.productToDelete.id
+    );
+    this.productToDelete = {};
+  }
+
+  agregarProducto() {
+    const newId =
+      this.products.length > 0
+        ? this.products[this.products.length - 1].id + 1
+        : 1;
+    const nuevoProducto = { id: newId, ...this.newProduct };
+    this.products.push(nuevoProducto);
+    console.log('Producto añadido:', nuevoProducto);
+    this.newProduct = {
+      nombre: '',
+      descripcion: '',
+      precio: '',
+      cantidad: 0,
+      id_cat_producto: '',
+      photo: '',
+    };
   }
 }

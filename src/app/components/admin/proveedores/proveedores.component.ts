@@ -11,6 +11,7 @@ export class ProveedoresComponent implements OnInit {
   providers: any[] = [];
   providerToEdit: any = {};
   providerToDelete: any = {};
+  newProvider: any = { nombre: '' };
 
   constructor() {}
 
@@ -53,5 +54,16 @@ export class ProveedoresComponent implements OnInit {
       (provider) => provider.id !== this.providerToDelete.id
     );
     this.providerToDelete = {};
+  }
+
+  agregarProveedor() {
+    const newId =
+      this.providers.length > 0
+        ? this.providers[this.providers.length - 1].id + 1
+        : 1;
+    const nuevoProveedor = { id: newId, ...this.newProvider };
+    this.providers.push(nuevoProveedor);
+    console.log('Proveedor añadido:', nuevoProveedor);
+    this.newProvider = { nombre: '' };
   }
 }

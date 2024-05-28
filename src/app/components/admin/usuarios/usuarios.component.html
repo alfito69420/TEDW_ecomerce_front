@@ -1,5 +1,13 @@
 <div class="mt-4">
-  <div class="container container-tables">
+  <div>
+    <button
+      class="btn btn-success mb-3"
+      data-bs-toggle="modal"
+      data-bs-target="#ModalAgregar"
+    >
+      Añadir Usuario
+    </button>
+
     <table
       datatable
       [dtOptions]="dtOptions"
@@ -59,7 +67,136 @@
   </div>
 </div>
 
-<!-- Agrega el modal de edición -->
+<!-- Modal para Agregar -->
+<div
+  class="modal fade"
+  id="ModalAgregar"
+  tabindex="-1"
+  aria-labelledby="addModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addModalLabel">Añadir Usuario</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulario para añadir usuario -->
+        <form>
+          <div class="mb-3">
+            <label for="addFirstName" class="form-label">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="addFirstName"
+              [(ngModel)]="newUser.firstName"
+              name="firstName"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="addApellidoP" class="form-label"
+              >Apellido Paterno</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="addApellidoP"
+              [(ngModel)]="newUser.lastName"
+              name="lastName"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="addApellidoM" class="form-label"
+              >Apellido Materno</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="addApellidoM"
+              [(ngModel)]="newUser.lastName2"
+              name="lastName2"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="addCompany" class="form-label">Compañia</label>
+            <input
+              type="text"
+              class="form-control"
+              id="addCompany"
+              [(ngModel)]="newUser.company"
+              name="company"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="addCountry" class="form-label">País</label>
+            <input
+              type="text"
+              class="form-control"
+              id="addCountry"
+              [(ngModel)]="newUser.country"
+              name="country"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="addEmail" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="addEmail"
+              [(ngModel)]="newUser.email"
+              name="email"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="addEmailVerified" class="form-label"
+              >Email Verificado</label
+            >
+            <select
+              class="form-control"
+              id="addEmailVerified"
+              [(ngModel)]="newUser.emailVerified"
+              name="emailVerified"
+            >
+              <option [ngValue]="true">Sí</option>
+              <option [ngValue]="false">No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="addPassword" class="form-label">Contraseña</label>
+            <input
+              type="password"
+              class="form-control"
+              id="addPassword"
+              [(ngModel)]="newUser.password"
+              name="password"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="agregarUsuario()"
+          data-bs-dismiss="modal"
+        >
+          Añadir Usuario
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para Editar -->
 <div
   class="modal fade"
   id="ModalEditar"
@@ -180,6 +317,7 @@
           type="button"
           class="btn btn-primary"
           (click)="guardarCambios()"
+          data-bs-dismiss="modal"
         >
           Guardar Cambios
         </button>

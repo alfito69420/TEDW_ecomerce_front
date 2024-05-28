@@ -1,5 +1,12 @@
 <div class="mt-4">
   <div class="container container-tables">
+    <button
+      class="btn btn-success mb-3"
+      data-bs-toggle="modal"
+      data-bs-target="#ModalAgregar"
+    >
+      Añadir Categoría
+    </button>
     <table
       datatable
       [dtOptions]="dtOptions"
@@ -49,7 +56,77 @@
   </div>
 </div>
 
-<!-- Agrega el modal de edición -->
+<!-- Modal para Agregar -->
+<div
+  class="modal fade"
+  id="ModalAgregar"
+  tabindex="-1"
+  aria-labelledby="addModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addModalLabel">Añadir Categoría</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="addNombre" class="form-label">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="addNombre"
+              [(ngModel)]="newCategory.nombre"
+              name="nombre"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="addDescripcion" class="form-label">Descripción</label>
+            <input
+              type="text"
+              class="form-control"
+              id="addDescripcion"
+              [(ngModel)]="newCategory.descripcion"
+              name="descripcion"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="addIdProveedor" class="form-label">ID Proveedor</label>
+            <input
+              type="text"
+              class="form-control"
+              id="addIdProveedor"
+              [(ngModel)]="newCategory.id_proveedor"
+              name="id_proveedor"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-success"
+          (click)="agregarCategoria()"
+          data-bs-dismiss="modal"
+        >
+          Añadir Categoría
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para Editar -->
 <div
   class="modal fade"
   id="ModalEditar"
@@ -57,7 +134,6 @@
   aria-labelledby="editModalLabel"
   aria-hidden="true"
 >
-  <!-- Contenido del modal -->
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -70,7 +146,6 @@
         ></button>
       </div>
       <div class="modal-body">
-        <!-- Formulario para editar categoría -->
         <form>
           <div class="mb-3">
             <label for="editNombre" class="form-label">Nombre</label>
@@ -144,7 +219,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Cancelar
+          Cancel
         </button>
         <button
           type="button"

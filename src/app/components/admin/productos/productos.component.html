@@ -1,5 +1,13 @@
 <div class="mt-4">
   <div class="container container-tables">
+    <button
+      class="btn btn-success mb-3"
+      data-bs-toggle="modal"
+      data-bs-target="#ModalAgregar"
+    >
+      Añadir Producto
+    </button>
+
     <table
       datatable
       [dtOptions]="dtOptions"
@@ -43,6 +51,7 @@
                 class="btn btn-danger"
                 data-bs-toggle="modal"
                 data-bs-target="#ModalBorrar"
+                (click)="setDeleteProduct(product)"
               >
                 <i class="bx bx-trash" style="font-size: 25px"></i>
               </button>
@@ -54,7 +63,108 @@
   </div>
 </div>
 
-<!-- Agrega el modal de edición -->
+<!-- Modal para Agregar -->
+<div
+  class="modal fade"
+  id="ModalAgregar"
+  tabindex="-1"
+  aria-labelledby="addModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addModalLabel">Añadir Producto</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulario para añadir producto -->
+        <form>
+          <div class="mb-3">
+            <label for="addNombre" class="form-label">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="addNombre"
+              [(ngModel)]="newProduct.nombre"
+              name="nombre"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="addDescripcion" class="form-label">Descripción</label>
+            <input
+              type="text"
+              class="form-control"
+              id="addDescripcion"
+              [(ngModel)]="newProduct.descripcion"
+              name="descripcion"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="addPrecio" class="form-label">Precio</label>
+            <input
+              type="text"
+              class="form-control"
+              id="addPrecio"
+              [(ngModel)]="newProduct.precio"
+              name="precio"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="addCantidad" class="form-label">Cantidad</label>
+            <input
+              type="number"
+              class="form-control"
+              id="addCantidad"
+              [(ngModel)]="newProduct.cantidad"
+              name="cantidad"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="addCategoria" class="form-label">Categoria</label>
+            <input
+              type="text"
+              class="form-control"
+              id="addCategoria"
+              [(ngModel)]="newProduct.id_cat_producto"
+              name="id_cat_producto"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="addFoto" class="form-label">Foto</label>
+            <input
+              type="text"
+              class="form-control"
+              id="addFoto"
+              [(ngModel)]="newProduct.photo"
+              name="photo"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="agregarProducto()"
+          data-bs-dismiss="modal"
+        >
+          Añadir Producto
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para Editar -->
 <div
   class="modal fade"
   id="ModalEditar"
@@ -62,7 +172,6 @@
   aria-labelledby="editModalLabel"
   aria-hidden="true"
 >
-  <!-- Contenido del modal -->
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -75,7 +184,7 @@
         ></button>
       </div>
       <div class="modal-body">
-        <!-- Formulario para editar usuario -->
+        <!-- Formulario para editar producto -->
         <form>
           <div class="mb-3">
             <label for="editNombre" class="form-label">Nombre</label>
@@ -124,7 +233,7 @@
               class="form-control"
               id="editCategoria"
               [(ngModel)]="productToEdit.id_cat_producto"
-              name="categoria"
+              name="id_cat_producto"
             />
           </div>
           <div class="mb-3">
@@ -147,6 +256,7 @@
           type="button"
           class="btn btn-primary"
           (click)="guardarCambios()"
+          data-bs-dismiss="modal"
         >
           Guardar Cambios
         </button>
