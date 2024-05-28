@@ -39,6 +39,7 @@ import { ProveedoresComponent } from './components/admin/proveedores/proveedores
 import { CuponesComponent } from './components/admin/cupones/cupones.component';
 import { MetodosPagoComponent } from './components/admin/metodos-pago/metodos-pago.component';
 import { NavAdminComponent } from './components/admin/nav-admin/nav-admin.component';
+import { CartInvitedComponent } from './components/cart-invited/cart-invited.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,6 @@ import { NavAdminComponent } from './components/admin/nav-admin/nav-admin.compon
     NavUsuarioComponent,
     CartComponent,
     ShopUserComponent,
-
     ContactUserComponent,
     AboutUserComponent,
     OpcionesComponent,
@@ -69,6 +69,7 @@ import { NavAdminComponent } from './components/admin/nav-admin/nav-admin.compon
     CuponesComponent,
     MetodosPagoComponent,
     NavAdminComponent,
+    CartInvitedComponent,
   ],
   imports: [
     DataTablesModule,
@@ -83,6 +84,7 @@ import { NavAdminComponent } from './components/admin/nav-admin/nav-admin.compon
       { path: 'contact', component: ContactComponent },
       { path: 'about', component: AboutComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'cart', component: CartInvitedComponent},
       { path: 'user/home', component: IndexComponent },
       { path: 'user/cart', component: CartComponent },
       { path: 'user/shop', component: ShopUserComponent },

@@ -8,29 +8,41 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   providedIn: 'root'
 })
 export class UsuariosServiceService {
-  public url:any
-  constructor(private _http:HttpClient) {
+  public url: any
+  constructor(private _http: HttpClient) {
     this.url = URL.url
-   }
+  }
 
-   registro_usuario(data:any):Observable<any>{
+  registro_usuario(data: any): Observable<any> {
     let headers = new HttpHeaders().set("Content-Type", "application/json");
-    return this._http.post(this.url+"users/register", data, {headers:headers});
-   }
+    return this._http.post(this.url + "users/register", data, { headers: headers });
+  }
 
-   login_usuario(data:any):Observable<any>{
+  login_usuario(data: any): Observable<any> {
     let headers = new HttpHeaders().set("Content-Type", "application/json");
-    return this._http.post(this.url+"users/login", data, {headers:headers});
-   }
+    return this._http.post(this.url + "users/login", data, { headers: headers });
+  }
 
-   vista_productos(filtro:any):Observable<any>{
+  vista_productos(filtro: any): Observable<any> {
     let headers = new HttpHeaders().set("Content-Type", "application/json")
-    return this._http.get(this.url+"products/get-all"+filtro, {headers:headers})
+    return this._http.get(this.url + "products/get-all" + filtro, { headers: headers })
   }
 
   obtener_categorias(): Observable<any[]> {
     let headers = new HttpHeaders().set('Content-Type', 'application/json')
     return this._http.get<any[]>(this.url + 'categories/get-all', { headers: headers })
+  }
+
+  obtener_usuario(id: any, token: any): Observable<any> {
+    let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
+    if (token) {
+      headers = headers.set('Authorization', token);
+    } else {
+      throw new Error('El token de autenticación no está disponible');
+    }
+
+    return this._http.get(this.url + 'users/get-one/' + id, { headers: headers });
   }
 }
 
